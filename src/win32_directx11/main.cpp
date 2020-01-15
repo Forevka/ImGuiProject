@@ -10,6 +10,7 @@
 #include <tchar.h>
 #include <list>
 #include "src/win32_directx11/MainController.cpp"
+#include "spdlog/spdlog.h"
 
 // Data
 static ID3D11Device*            g_pd3dDevice = NULL;
@@ -83,12 +84,14 @@ int main(int, char**)
     MSG msg;
     ZeroMemory(&msg, sizeof(msg));
 
+	spdlog::info("Creating main controller");
     //
     MainController* controller = new MainController();
     controller->AddNewWindow();
     controller->AddNewWindow();
     controller->AddNewWindow();
     //
+	spdlog::info("Created");
 
     while (msg.message != WM_QUIT)
     {
