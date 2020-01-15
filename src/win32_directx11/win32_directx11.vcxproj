@@ -162,6 +162,7 @@
     <ClCompile Include="..\..\imgui_widgets.cpp" />
     <ClCompile Include="..\imgui_impl_dx11.cpp" />
     <ClCompile Include="..\imgui_impl_win32.cpp" />
+    <ClCompile Include="BaseWidget.cpp" />
     <ClCompile Include="BaseWindow.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainController.cpp" />

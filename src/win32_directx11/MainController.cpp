@@ -20,7 +20,10 @@ public:
     bool AddNewWindow() {
         BaseWindow* baseWindow = new BaseWindow(200, 200, "New Window", textWindows.size());
         baseWindow->Initialize();
-
+    	
+        baseWindow->AddWidget(new BaseWidget("Text"));
+        baseWindow->AddWidget(new BaseWidget("Button"));
+    	
         textWindows.push_front(baseWindow);
 
         return true;

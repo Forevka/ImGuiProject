@@ -56,6 +56,9 @@
     <ClCompile Include="..\imgui_impl_win32.cpp">
       <Filter>sources\ImGuiDX11</Filter>
     </ClCompile>
+    <ClCompile Include="BaseWidget.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.txt" />
