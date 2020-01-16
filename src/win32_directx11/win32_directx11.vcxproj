@@ -166,7 +166,7 @@
     <ClCompile Include="BaseWindow.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainController.cpp" />
-    <ClCompile Include="ObservableBool.cpp" />
+    <ClCompile Include="TriggerComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\misc\natvis\imgui.natvis" />

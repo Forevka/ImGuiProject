@@ -1,62 +1,42 @@
 
 #include "imgui.h"
 #include <iostream>
-#include "imgui_impl_win32.h"
-#include "imgui_impl_dx11.h"
 #include <string>
-#include <utility>
-#include <src\win32_directx11\ObservableBool.cpp>
+#include <src/win32_directx11/TriggerComponent.cpp>
 
 class BaseWidget
 {
 public:
-	std::string widgetName;
-
-	static BaseWidget* MakeWidget(const std::string widget_name);
-
+	std::string widget_name;
+	
+	virtual ~BaseWidget() = default;
+	
 	virtual void Draw() = 0;
+
+	static BaseWidget* MakeWidget(const std::string& widget_name);
 };
 
-class TextWrapper: public BaseWidget
+class TextWrapper final : public BaseWidget
 {
-	void Draw()
+	void Draw() override
 	{
 		ImGui::Text("TEST TEXT");
 	}
 };
 
-class ButtonWrapper : public BaseWidget
+class ButtonWrapper final : public BaseWidget, public TriggerComponent
 {
 public:
-	//ObservableBool* test = new ObservableBool();
-	std::vector<ObserverABC*> observers_ = std::vector<ObserverABC*>();
-	
-	void Draw()
+	void Draw() override
 	{
 		if (ImGui::Button("Button test"))
 		{
-			this->raiseEvent();
-		}
-	}
-
-	void addObserver(ObserverABC* observer) {
-		observers_.push_back(observer);
-	}
-
-	void removeObserver(ObserverABC* observer) {
-		auto a = std::find(observers_.begin(), observers_.end(), observer);
-		observers_.erase(a);
-	}
-	
-private:
-	void raiseEvent() {
-		for (int i = 0; i < observers_.size(); ++i) {
-			observers_[i]->trigger();
+			this->RaiseEvent();
 		}
 	}
 };
 
-inline BaseWidget* BaseWidget::MakeWidget(const std::string widget_name)
+inline auto BaseWidget::MakeWidget(const std::string& widget_name) -> BaseWidget*
 {
 	if (widget_name == "Text")
 	{
@@ -65,11 +45,12 @@ inline BaseWidget* BaseWidget::MakeWidget(const std::string widget_name)
 	
 	if(widget_name == "Button")
 	{
-		ButtonWrapper* but = new ButtonWrapper();
+		auto* but = new ButtonWrapper();
 
-		TestObserver* obs = new TestObserver;
+		auto* obs = new TestTrigger;
 		
-		but->addObserver(obs);
+		but->AddTrigger(obs);
 		return but;
 	}
+	return nullptr;
 }

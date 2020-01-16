@@ -1,6 +1,4 @@
 #include "imgui.h"
-#include "imgui_impl_win32.h"
-#include "imgui_impl_dx11.h"
 #include <iostream>
 #include <fmt/format.h>
 #include <list>
@@ -22,7 +20,7 @@ public:
     std::list<BaseWidget*> textWindows;
     std::list<BaseWidget*>::iterator it;
 
-    BaseWindow(float width, float height, std::string name, int id)
+    BaseWindow(const float width, const float height, std::string name, int id)
     {
         this->width = width;
         this->height = height;
@@ -30,9 +28,6 @@ public:
         this->name = GetUnicalName(name);
 
         std::cout << fmt::format("Creating {1} With Id = {0} ", id, name) << std::endl;
-    }
-
-    void Initialize() const {
     }
 
     void AddWidget(BaseWidget* widget)
@@ -53,9 +48,9 @@ public:
     }
 
     const char* GetUnicalName(const std::string& newName) const {
-        std::string unical = fmt::format("{0} #{1}", newName, id);
+	    const auto unical = fmt::format("{0} #{1}", newName, id);
 
-        char* cstr = new char[unical.length() + 1];
+	    const auto cstr = new char[unical.length() + 1];
 
         strcpy(cstr, unical.c_str());
 

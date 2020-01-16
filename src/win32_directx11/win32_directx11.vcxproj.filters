@@ -62,7 +62,7 @@
     <ClCompile Include="BaseWidget.cpp">
       <Filter>sources</Filter>
     </ClCompile>
-    <ClCompile Include="ObservableBool.cpp">
+    <ClCompile Include="TriggerComponent.cpp">
       <Filter>sources\utils</Filter>
     </ClCompile>
   </ItemGroup>
