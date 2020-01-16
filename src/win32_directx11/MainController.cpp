@@ -21,8 +21,8 @@ public:
         BaseWindow* baseWindow = new BaseWindow(200, 200, "New Window", textWindows.size());
         baseWindow->Initialize();
     	
-        baseWindow->AddWidget(new BaseWidget("Text"));
-        baseWindow->AddWidget(new BaseWidget("Button"));
+        baseWindow->AddWidget(BaseWidget::MakeWidget("Text"));
+        baseWindow->AddWidget(BaseWidget::MakeWidget("Button"));
     	
         textWindows.push_front(baseWindow);
 

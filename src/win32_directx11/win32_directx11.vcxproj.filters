@@ -10,6 +10,9 @@
     <Filter Include="sources\ImGuiDX11">
       <UniqueIdentifier>{a99045ce-a3b3-447f-a8b3-5184555765e8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="sources\utils">
+      <UniqueIdentifier>{811259a4-30c9-48f8-bf0b-8a1434aed76d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\imconfig.h">
@@ -58,6 +61,9 @@
     </ClCompile>
     <ClCompile Include="BaseWidget.cpp">
       <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="ObservableBool.cpp">
+      <Filter>sources\utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
