@@ -5,6 +5,7 @@
 #include "src/win32_directx11/BaseWidget.cpp" 
 
 
+
 class BaseWindow
 {
 public:
@@ -43,7 +44,16 @@ public:
         {
             (*it)->Draw();
         }
+
+		ImVec2 p = ImGui::GetWindowPos();
+		p.x += ImGui::GetWindowWidth();
+		p.y += ImGui::GetWindowHeight() / 2;
     	
+		ImGui::BeginChild("Test");
+		ImGui::GetOverlayDrawList()->AddLine(p, ImVec2(p.x + 500, p.y + 500), IM_COL32(255, 0, 0, 255), 3.0f);
+
+		ImGui::GetOverlayDrawList()->AddBezierCurve(p, ImVec2(p.x, p.y + 500), ImVec2(p.x + 500, p.y), ImVec2(p.x + 500, p.y + 500), IM_COL32(255, 0, 0, 255), 3.0f, 16);
+		ImGui::EndChild();
         ImGui::End();
     }
 
