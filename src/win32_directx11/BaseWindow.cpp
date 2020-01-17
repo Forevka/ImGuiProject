@@ -18,7 +18,7 @@ public:
 
     bool isOpen = true;
 
-    std::list<BaseWidget*> textWindows;
+    std::list<BaseWidget*> widgets;
     std::list<BaseWidget*>::iterator it;
 
     BaseWindow(const float width, const float height, std::string name, int id)
@@ -33,29 +33,10 @@ public:
 
     void AddWidget(BaseWidget* widget)
     {
-        textWindows.push_back(widget);
+		widgets.push_back(widget);
     }
 	
-    void Draw()
-    {
-        ImGui::Begin(name);
-    	
-        for (it = textWindows.begin(); it != textWindows.end(); it++)
-        {
-            (*it)->Draw();
-        }
-
-		ImVec2 p = ImGui::GetWindowPos();
-		p.x += ImGui::GetWindowWidth();
-		p.y += ImGui::GetWindowHeight() / 2;
-    	
-		ImGui::BeginChild("Test");
-		ImGui::GetOverlayDrawList()->AddLine(p, ImVec2(p.x + 500, p.y + 500), IM_COL32(255, 0, 0, 255), 3.0f);
-
-		ImGui::GetOverlayDrawList()->AddBezierCurve(p, ImVec2(p.x, p.y + 500), ImVec2(p.x + 500, p.y), ImVec2(p.x + 500, p.y + 500), IM_COL32(255, 0, 0, 255), 3.0f, 16);
-		ImGui::EndChild();
-        ImGui::End();
-    }
+	virtual void Draw() = 0;
 
     const char* GetUnicalName(const std::string& newName) const {
 	    const auto unical = fmt::format("{0} #{1}", newName, id);

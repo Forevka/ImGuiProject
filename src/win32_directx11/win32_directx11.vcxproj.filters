@@ -13,6 +13,12 @@
     <Filter Include="sources\utils">
       <UniqueIdentifier>{811259a4-30c9-48f8-bf0b-8a1434aed76d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="sources\windows">
+      <UniqueIdentifier>{2726f674-411d-4551-aec3-8b4119b5e84e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\widgets">
+      <UniqueIdentifier>{9cfbbfcd-c74d-44af-a148-7e2f9d11de90}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\imconfig.h">
@@ -64,6 +70,9 @@
     </ClCompile>
     <ClCompile Include="TriggerComponent.cpp">
       <Filter>sources\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeWindow.cpp">
+      <Filter>sources\windows</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -25,6 +25,8 @@ void CreateRenderTarget();
 void CleanupRenderTarget();
 LRESULT WINAPI WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
+int BaseWidget::widgetId = 0;
+
 // Main code
 int main(int, char**)
 {
@@ -87,9 +89,9 @@ int main(int, char**)
 	spdlog::info("Creating main controller");
     //
     MainController* controller = new MainController();
+    /*controller->AddNewWindow();
     controller->AddNewWindow();
-    controller->AddNewWindow();
-    controller->AddNewWindow();
+    controller->AddNewWindow();*/
     //
 	spdlog::info("Created");
 

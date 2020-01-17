@@ -166,6 +166,7 @@
     <ClCompile Include="BaseWindow.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainController.cpp" />
+    <ClCompile Include="NodeWindow.cpp" />
     <ClCompile Include="TriggerComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
